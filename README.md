@@ -1,57 +1,50 @@
 # text-to-speech
 Simple Python app that calls the Google Text to Speech API
 
-Open a terminal and go to a directory on your computer where you want to store the project
+## Prerequisites
 
-``` sh
-mkdir text-to-speech
-```
-``` sh
+  + Anaconda 3.7+
+  + Python 3.8+
+  + Pip
+  + Python-dotenv
+
+## Installation
+
+Fork this z`[remote repository] (https://github.com/mdv5/text-to-speech.git) under your own control, then "clone" or download your remote copy onto your local computer.
+
+Then navigate there from the command line (subsequent commands assume you are running them from the local repository's root directory):
+
+```sh
 cd text-to-speech
 ```
-Clone the project from github
-```sh
-git clone https://github.com/mdv5/text-to-speech.git
-```
-Create credentials to be used with the app
-PLACEHOLDER TO CREATE AN API KEY and store the JSON file that contains it
-For now quick-start guidance is available in Google's documentation: https://cloud.google.com/text-to-speech/docs/quickstart-client-libraries
 
-***Mac/Linux***
-Set up a virtual environment and install the google-cloud-texttospeech #Section to be replaced with CONDA and requirements.txt file
-```sh
-pip install virtualenv
-virtualenv <your-env>
-source <your-env>/bin/activate
-<your-env>/bin/pip install google-cloud-texttospeech
-```
-
-Set the environment variable #Section to be replaced with dotenv package so environment variable can be stored and accessed locally
-```sh
-export GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
-```
-
-Example
-```sh
-export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/service-account-file.json"
-```
-
-***Windows***
-Set up a virtual environment and install the google-cloud-texttospeech #Section to be replaced with CONDA and requirements.txt file
-
-```pip install virtualenv
-virtualenv <your-env>
-<your-env>\Scripts\activate
-<your-env>\Scripts\pip.exe install google-cloud-texttospeech
-```
-
-Set the environment variable #Section to be replaced with dotenv package so environment variable can be stored and accessed locally
+Use Anaconda to create and activate a new virtual environment, perhaps called "text-to-speech":
 
 ```sh
-$env:GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
+conda create -n text-to-speech python=3.8
+conda activate text-to-speech
 ```
 
-Example
+After activating the virtual environment, install package dependencies (see the ["requirements.txt"](/requirements.txt) file):
+
 ```sh
-$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\username\Downloads\service-account-file.json"
+pip install -r requirements.txt
 ```
+
+## Setup
+
+In in the root directory of your local repository, create a new file called ".env", and update the contents of the ".env" file to specify the following environment variables:
+
+GOOGLE_APPLICATION_CREDENTIALS="ENTER FILE PATH OF GOOGLE CREDENTIALS JSON HERE"
+
+
+## Usage
+
+Run the text-to-speech script:
+
+```py
+app.py
+```
+
+PLACEHOLDER: For now the text input is hard-coded in app.py and the audio output is written to your app folder as "output.mp3". Future updates to the app will allow you to fetch the text from a local file and write it to a named output file.
+

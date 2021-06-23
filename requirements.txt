@@ -1,0 +1,3 @@
+#Required packages
+google-cloud-texttospeech
+python-dotenv # see: https://github.com/theskumar/python-dotenv
