@@ -19,16 +19,22 @@ For now quick-start guidance is available in Google's documentation: https://clo
 
 ***Mac/Linux***
 Set up a virtual environment and install the google-cloud-texttospeech #Section to be replaced with CONDA and requirements.txt file
-```pip install virtualenv
+```sh
+pip install virtualenv
 virtualenv <your-env>
 source <your-env>/bin/activate
-<your-env>/bin/pip install google-cloud-texttospeech```
+<your-env>/bin/pip install google-cloud-texttospeech
+```
 
 Set the environment variable #Section to be replaced with dotenv package so environment variable can be stored and accessed locally
+```sh
 export GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
+```
 
 Example
+```sh
 export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/service-account-file.json"
+```
 
 ***Windows***
 Set up a virtual environment and install the google-cloud-texttospeech #Section to be replaced with CONDA and requirements.txt file
@@ -36,12 +42,16 @@ Set up a virtual environment and install the google-cloud-texttospeech #Section 
 ```pip install virtualenv
 virtualenv <your-env>
 <your-env>\Scripts\activate
-<your-env>\Scripts\pip.exe install google-cloud-texttospeech```
+<your-env>\Scripts\pip.exe install google-cloud-texttospeech
+```
 
 Set the environment variable #Section to be replaced with dotenv package so environment variable can be stored and accessed locally
-export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/service-account-file.json"
+
+```sh
 $env:GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
+```
 
 Example
+```sh
 $env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\username\Downloads\service-account-file.json"
-
+```
