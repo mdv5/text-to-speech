@@ -11,15 +11,15 @@ def convert(pdf_file_path, output_name, language = 'en-US',gender = "MALE",voice
 
     # have the user input the file path
     
-    if file_path.endswith(".pdf"):
-        pdfFileObject = open(file_path, 'rb')
+    if pdf_file_path.endswith(".pdf"):
+        pdfFileObject = open(pdf_file_path, 'rb')
         pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
         pageObject = pdfReader.getPage(0)
         extracted_text = (pageObject.extractText())
         pdfFileObject.close()
 
     else: 
-        f = open(file_path, "r")
+        f = open(pdf_file_path, "r")
         extracted_text = f.read()
 
     # Set the text input to be synthesized
@@ -67,21 +67,22 @@ def convert(pdf_file_path, output_name, language = 'en-US',gender = "MALE",voice
         out.write(response.audio_content)
         print('Audio content written to file "', output_name, '.mp3"')
 
+if __name__ == "__main__":
 
-# have the user input the file path
-file_path = input ("Input your file path of a PDF or TXT file: ")
+    # have the user input the file path
+    file_path = input ("Input your file path of a PDF or TXT file: ")
 
-#prompt user to enter a desired language
-language = input("Please choose a language code, one of 'en-US', 'fr-FR', or 'es-US': ")
+    #prompt user to enter a desired language
+    language = input("Please choose a language code, one of 'en-US', 'fr-FR', or 'es-US': ")
 
 
-# validate user input for gender
-gender = input("Please choose a gender for the voice, one of 'MALE', 'FEMALE', or 'NEUTRAL': ")
+    # validate user input for gender
+    gender = input("Please choose a gender for the voice, one of 'MALE', 'FEMALE', or 'NEUTRAL': ")
 
-voice_type = input("Please choose a voice type, one of 'Standard', or 'Wavenet': ")
+    voice_type = input("Please choose a voice type, one of 'Standard', or 'Wavenet': ")
 
-# The response's audio_content is binary.
+    # The response's audio_content is binary.
 
-output_name = input("What would you like to name your mp3 file? Type it here:  ")
+    output_name = input("What would you like to name your mp3 file? Type it here:  ")
 
-convert(pdf_file_path=file_path, output_name = output_name, language = language, gender = gender, voice_type = voice_type)
+    convert(pdf_file_path=file_path, output_name = output_name, language = language, gender = gender, voice_type = voice_type)
