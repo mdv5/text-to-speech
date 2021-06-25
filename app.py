@@ -1,14 +1,25 @@
 from google.cloud import texttospeech
 import os
 from dotenv import load_dotenv
+import PyPDF2
 
 load_dotenv()
 
 # Instantiates a client
 client = texttospeech.TextToSpeechClient()
 
+# have the user input the file path
+file_path = input ("Input your file path: ")
+
+if file_path.endswith(".pdf"):
+    pdfFileObject = open(file_path, 'rb')
+    pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
+    pageObject = pdfReader.getPage(0)
+    extracted_text = (pageObject.extractText())
+    pdfFileObject.close()
+
 # Set the text input to be synthesized
-synthesis_input = texttospeech.SynthesisInput(text="I ate hamburgers at a start-up accelerator")
+synthesis_input = texttospeech.SynthesisInput(text= extracted_text)
 
 #prompt user to enter a desired language
 language = input("Please choose a language code, one of 'en-US', 'fr-FR', or 'es-US': ")
