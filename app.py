@@ -8,14 +8,37 @@ load_dotenv()
 client = texttospeech.TextToSpeechClient()
 
 # Set the text input to be synthesized
-synthesis_input = texttospeech.SynthesisInput(text="Crikey mate! I'm going to Brisbane right now, want to come?")
+synthesis_input = texttospeech.SynthesisInput(text="I ate hamburgers at a start-up accelerator")
+
+#prompt user to enter a desired language
+language = input("Please choose a language code, one of 'en-US', 'fr-FR', or 'es-US': ")
+# validate user input for language
+if (language == "en-US") or (language == "fr-FR") or (language == "es-US"):
+    True
+else:
+    print("OOPS, invalid language. Please try again.")
+    exit()
+# validate user input for gender
+gender = input("Please choose a gender for the voice, one of 'MALE', 'FEMALE', or 'NEUTRAL': ")
+if (gender == "MALE") or (gender == "FEMALE") or (gender == "NEUTRAL"):
+    True
+else:
+    print("OOPS, invalid gender. Please try again.")
+    exit()
+
+voice_type = input("Please choose a voice type, one of 'Standard', or 'Wavenet': ")
+if (voice_type == "Standard") or (voice_type == "Wavenet"):
+    True
+else:
+    print("OOPS, invalid voice type. Please try again.")
+    exit()
 
 # Build the voice request, select the language code ("en-US") and the ssml
 # voice gender ("neutral")
 voice = texttospeech.VoiceSelectionParams(
-    language_code="en-US", 
-    name="en-AU-Standard-A",
-    ssml_gender=texttospeech.SsmlVoiceGender.FEMALE,
+    language_code=language, 
+    name=language+"-"+voice_type+"-A",
+    ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
 )
 
 # Select the type of audio file you want returned
