@@ -130,3 +130,7 @@ dmypy.json
 
 #Test output file
 output.mp3
+.mp3
+
+#vscode settings    
+settings.json
