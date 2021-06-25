@@ -9,7 +9,7 @@ load_dotenv()
 client = texttospeech.TextToSpeechClient()
 
 # have the user input the file path
-file_path = input ("Input your file path: ")
+file_path = input ("Input your file path of a PDF or TXT file: ")
 
 if file_path.endswith(".pdf"):
     pdfFileObject = open(file_path, 'rb')
@@ -17,6 +17,10 @@ if file_path.endswith(".pdf"):
     pageObject = pdfReader.getPage(0)
     extracted_text = (pageObject.extractText())
     pdfFileObject.close()
+
+else: 
+    f = open(file_path, "r")
+    extracted_text = f.read()
 
 # Set the text input to be synthesized
 synthesis_input = texttospeech.SynthesisInput(text= extracted_text)
