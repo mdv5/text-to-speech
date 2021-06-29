@@ -37,14 +37,17 @@ In in the root directory of your local repository, create a new file called ".en
 
 GOOGLE_APPLICATION_CREDENTIALS="ENTER FILE PATH OF GOOGLE CREDENTIALS JSON HERE"
 
+You can obtain a Google Credentials JSON by following the steps outlined in Google's Text-to-Speech Quickstart reference material (https://cloud.google.com/text-to-speech/docs/quickstart-client-libraries).
+
 
 ## Usage
 
 Run the text-to-speech script:
 
 ```py
-app.py
+app/text_to_speech.py
 ```
 
-PLACEHOLDER: For now the text input is hard-coded in app.py and the audio output is written to your app folder as "output.mp3". Future updates to the app will allow you to fetch the text from a local file and write it to a named output file.
+Once the app is launched, you will be prompted to input the path of the file to be converted into an audio mp3 file. The app can accept either PDF for TXT files as an input. Importantly, remember to include the file name to be converted including its .pdf or .txt extension at the end of the file path (e.g., YourDrive:\YourDirectory\YourFileName.pdf).
 
+After providing the above information, you will also be prompted to select a language code, voice gender, and voice type. Finally, you will be asked to provide a name for the mp3 file the app creates. This mp3 file will be saved in the text-to-speech folder. 
